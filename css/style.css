@@ -1,0 +1,152 @@
+body
+{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+    
+}
+
+.container
+{
+    position: relative;
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+   
+}
+.sun
+{
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background: rgb(228,241,12);
+    background: radial-gradient(circle, rgba(228,241,12,0.9780287114845938) 26%, rgba(233,201,11,1) 48%, rgba(255,192,0,1) 57%);
+    border-radius: 50%;
+    box-shadow: 0 0 3em #dddb66;
+    animation: filter-animation .2s linear infinite;
+    
+
+}
+@keyframes filter-animation {
+    0% 
+    {
+      filter: hue-rotate(0deg);
+    }
+    10% 
+    {
+      filter: hue-rotate(10deg);
+    }
+    30% 
+    {
+        filter: hue-rotate(0deg);
+    }
+    50% 
+    {
+        filter: hue-rotate(10deg);
+    }
+    70% 
+    {
+        filter: hue-rotate(7deg);
+    }
+    100% 
+    {
+      filter: hue-rotate(0deg);
+    }
+}
+
+.earth, .moon
+{
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+    
+}
+.earth
+{
+    
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em;
+    animation: orbit 36.5s linear infinite;
+}
+
+.moon
+{
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em;
+    animation:  orbit 4s linear infinite;
+}
+
+.earth::before,
+.moon::before
+{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 1em #fff;
+}
+.earth::before
+{
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background: rgb(44, 240, 240);
+    animation: flickerearth 3s linear infinite;
+}
+.moon::before
+{
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background: rgb(241, 211, 211);
+    animation: flickermoon 1s linear infinite;
+}
+@keyframes flickerearth {
+    0% 
+    {
+      filter: hue-rotate(30deg);
+    }
+    50%
+    {
+        filter: hue-rotate(15deg);
+    }
+    100%
+    {
+        filter: hue-rotate(0deg);
+    }
+   
+    
+}
+@keyframes flickermoon {
+    0% 
+    {
+      filter: hue-rotate(25deg);
+    }
+    100%
+    {
+        filter: hue-rotate(0deg);
+    }
+    
+}
+
+@keyframes orbit {
+    to
+    {
+        transform: rotate(360deg);
+    }
+}
+
+
